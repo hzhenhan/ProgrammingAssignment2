@@ -6,29 +6,29 @@
 ## Write a short comment describing this function
 ## this function(makeVector) uses scoping rules and stores matrices in memory.
 makeVector <- function(x = numeric()) {
-  m <- NULL
+  v <- NULL
   set <- function(y) {
     x <<- y
-    m <<- NULL
+    v <<- NULL
   }
   get <- function() x
-  setmean <- function(mean) m <<- mean
-  getmean <- function() m
+  setinverse <- function(inverse) v <<- inverse
+  getinverse <- function() v
   list(set = set, get = get,
-       setmean = setmean,
-       getmean = getmean)
+       setinverse = setinverse,
+       getinverse = getinverse)
 }
 
 ## Write a short comment describing this function
 ## the input x must be a makeVector and this function(cachemean) returns the inverse of the matrix.
 cachemean <- function(x, ...) {
-  m <- x$getmean()
-  if(!is.null(m)) {
+  v <- x$getinverse()
+  if(!is.null(v)) {
     message("getting cached data")
-    return(m)
+    return(v)
   }
   data <- x$get()
-  m <- mean(data, ...)
-  x$setmean(m)
-  m
+  v <- solve(data, ...)
+  x$setinverse(v)
+  v
 }
