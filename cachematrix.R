@@ -1,10 +1,10 @@
 ## Put comments here that give an overall description of what your
 ## functions do
-## makeVector stores a matrix (x) in the memory
-## cachemean gives inverse of the matrix if it is in the memory or computes the inverse and then shows the inverse
+## makeVector stores a matrix (x) in the memory.
+## cachemean gives inverse of the matrix if it is in the memory or computes the inverse and then shows the inverse.
 
 ## Write a short comment describing this function
-## makeVector uses scoping rules and stores matrices in memory
+## this function(makeVector) uses scoping rules and stores matrices in memory.
 makeVector <- function(x = numeric()) {
   m <- NULL
   set <- function(y) {
@@ -20,7 +20,7 @@ makeVector <- function(x = numeric()) {
 }
 
 ## Write a short comment describing this function
-## the input x must be a makeVector
+## the input x must be a makeVector and this function(cachemean) returns the inverse of the matrix.
 cachemean <- function(x, ...) {
   m <- x$getmean()
   if(!is.null(m)) {
